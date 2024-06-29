@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { NgFor, NgIf } from '@angular/common';
 
 import { HeaderComponent } from './component/header/header.component';
 import { UserComponent } from './component/user/user.component';
@@ -10,11 +11,17 @@ import { DUMMY_USERS } from './dummy-users';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent, UserComponent, TasksComponent],
+  imports: [
+    HeaderComponent,
+    UserComponent,
+    TasksComponent,
+    // NgFor,
+    // NgIf
+  ],
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = DUMMY_USERS[0].id;
+  selectedUserId?: string;
 
   get selectedUser() {
     return this.users.find((user) => user.id === this.selectedUserId);
